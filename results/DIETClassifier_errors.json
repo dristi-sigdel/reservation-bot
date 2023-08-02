@@ -1,0 +1,96 @@
+[
+  {
+    "text": "rajbiraj from kathmandu",
+    "entities": [
+      {
+        "start": 0,
+        "end": 8,
+        "value": "rajbiraj",
+        "entity": "location",
+        "role": "destination"
+      },
+      {
+        "start": 14,
+        "end": 23,
+        "value": "kathmandu",
+        "entity": "location",
+        "role": "origin"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "location",
+        "start": 0,
+        "end": 8,
+        "confidence_entity": 0.9994825720787048,
+        "role": "origin",
+        "confidence_role": 0.7448768615722656,
+        "value": "rajbiraj",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "location",
+        "start": 14,
+        "end": 23,
+        "confidence_entity": 0.999722421169281,
+        "role": "origin",
+        "confidence_role": 0.9163106679916382,
+        "value": "Kathmandu",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "kathmandu from pokhara",
+    "entities": [
+      {
+        "start": 0,
+        "end": 9,
+        "value": "kathmandu",
+        "entity": "location",
+        "role": "destination"
+      },
+      {
+        "start": 15,
+        "end": 22,
+        "value": "pokhara",
+        "entity": "location",
+        "role": "origin"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "location",
+        "start": 0,
+        "end": 9,
+        "confidence_entity": 0.9996023774147034,
+        "role": "origin",
+        "confidence_role": 0.7307381629943848,
+        "value": "Kathmandu",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "location",
+        "start": 15,
+        "end": 22,
+        "confidence_entity": 0.9998482465744019,
+        "role": "origin",
+        "confidence_role": 0.9721664786338806,
+        "value": "Pokhara",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  }
+]

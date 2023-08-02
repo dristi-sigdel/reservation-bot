@@ -1,0 +1,87 @@
+version: '3.1'
+intents:
+- bot_challenge
+- flight
+- flight_location
+- goodbye
+- greet
+- hotel
+- nationality
+- traveller
+entities:
+- nationality
+- location
+- traveller
+- roles:
+  - origin
+  - destination
+slots:
+  origin:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: location
+      role: origin
+    - type: from_entity
+      entity: location
+  destination:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: location
+      role: destination
+    - type: from_entity
+      entity: location
+  traveller:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: traveller
+  nationality:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: nationality
+responses:
+  utter_greet:
+  - text: Namaste! I can help you with Flight and Hotel Reservation. How would you like my help?
+    buttons:
+    - title: Flight Booking
+      payload: /flight
+    - title: Hotel Reservation
+      payload: /hotel
+  utter_goodbye:
+  - text: Bye
+  utter_flight:
+  - text: 'Can you please give the information about Origin to Destination location? (Format: Origin to Destination)'
+  utter_hotel:
+  - text: Can you please give the information about the place you would like to reserve Hotels from?
+  utter_flight_location:
+  - text: How many travellers are you booking for to visit from {origin} to {destination}?
+  utter_traveller:
+  - text: How many people would you like to book the flight from {origin} to {destination}?
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_nationality:
+  - text: What is your Nationality?
+  utter_submit:
+  - text: |-
+      Flight booking done Successfully for:
+
+      Origin: {origin}
+
+      Destination: {destination} 
+
+      No of Travellers: {traveller}
+
+      Nationality: {nationality}
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+actions:
+- utter_greet
+- utter_submit
+- utter_traveller
+- utter_flight
+- utter_nationality
+- utter_hotel

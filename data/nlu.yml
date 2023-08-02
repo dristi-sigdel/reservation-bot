@@ -1,0 +1,135 @@
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - Namaste
+    - Namaskar
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+- intent: flight
+  examples: |
+    - I would like to book a flight.
+    - flight booking
+- intent: hotel
+  examples: |
+    - I would like to reserve a hotel
+    - hotel reservation
+- intent: flight_location
+  examples: |
+    - [kathmadu]{"entity": "location", "role": "origin"} to [bhadrapur]{"entity": "location", "role": "destination", "value": "Bhadrapur"}
+    - from [Rajbiraj]{"entity": "location", "role": "origin"} to [dang]{"entity": "location", "role": "destination"}
+    - from [pkr]{"entity": "location", "role": "origin"} to [ktm]{"entity": "location", "role": "destination"}
+    - from [Biratnagar]{"entity": "location", "role": "origin"} to [dolpa]{"entity": "location", "role": "destination"}
+    - from [bhairahawa]{"entity": "location", "role": "origin"} to [jumla]{"entity": "location", "role": "destination"}
+    - from [BHW]{"entity": "location", "role": "origin"} to [Khanidada]{"entity": "location", "role": "destination"}
+    - from [bharatpur]{"entity": "location", "role": "origin"} to [Simikot]{"entity": "location", "role": "destination"}
+    - from [surkhet]{"entity": "location", "role": "origin"} to [phalpu]{"entity": "location", "role": "destination"}
+    - from [ilam]{"entity": "location", "role": "origin"} to [resunga]{"entity": "location", "role": "destination"}
+    - from [siraha]{"entity": "location", "role": "origin"} to [rukum]{"entity": "location", "role": "destination"}
+    - from [bajura]{"entity": "location", "role": "origin"} to [thamkharka]{"entity": "location", "role": "destination"}
+    - [bhadrapur]]{"entity": "location", "role": "origin"} to [lukla]{"entity": "location", "role": "destination"}
+    - [bhojpur]{"entity": "location", "role": "origin"} to [ramechhap]{"entity": "location", "role": "destination"}
+    - [meghauli]{"entity": "location", "role": "origin"} to [jomsom]{"entity": "location", "role": "destination"}
+    - [pokhara]{"entity": "location", "role": "origin"} to [rara]{"entity": "location", "role": "destination"}
+    - [dhangadi]{"entity": "location", "role": "origin"} to [simara]{"entity": "location", "role": "destination"}
+    - [solukhumbu]{"entity": "location", "role": "origin"} to [tumlingtar]{"entity": "location", "role": "destination"}
+    - [rajbiraj]{"entity": "location", "role": "origin"} to [bajura]{"entity": "location", "role": "destination"}
+    - [khotang]{"entity": "location", "role": "origin"} to [suketar]{"entity": "location", "role": "destination"}
+    - [jomsom]{"entity": "location", "role": "origin"} to [chandragadi]{"entity": "location", "role": "destination"}
+    - [dang]{"entity": "location", "role": "origin"} [meghauli]{"entity": "location", "role": "destination"}
+    - [taplejung]{"entity": "location", "role": "origin"} [rolpa]{"entity": "location", "role": "destination"}
+    - [nepalgunj]{"entity": "location", "role": "origin"} [khotang]{"entity": "location", "role": "destination"}
+    - [rukum]{"entity": "location", "role": "origin"} [achham]{"entity": "location", "role": "destination"}
+    - [dhankuta]{"entity": "location", "role": "origin"} to [solukhumbu]{"entity": "location", "role": "destination"}
+    - [bardiya]{"entity": "location", "role": "origin"} to [palungtar]{"entity": "location", "role": "destination"}
+    - [dolpa]{"entity": "location", "role": "origin"} to [rumjatar]{"entity": "location", "role": "destination"}
+    - [dhading]{"entity": "location", "role": "origin"} to [tikapur]{"entity": "location", "role": "destination"}
+    - [rara]{"entity": "location", "role": "origin"} to [rajbiraj]{"entity": "location", "role": "destination"}
+    - [Khanidada]{"entity": "location", "role": "origin"} to [pokhara]{"entity": "location", "role": "destination"}
+    - [Simikot]{"entity": "location", "role": "origin"} to [biratnagar]{"entity": "location", "role": "destination"}
+    - [phalpu]{"entity": "location", "role": "origin"} to [bhairahawa]{"entity": "location", "role": "destination"}
+    - [resunga]{"entity": "location", "role": "origin"} to [bharatpur]{"entity": "location", "role": "destination"}
+    - [thamkharka]{"entity": "location", "role": "origin"} to [surkhet]{"entity": "location", "role": "destination"}
+    - [lukla]{"entity": "location", "role": "origin"} to [ilam]{"entity": "location", "role": "destination"}
+    - [ramechhap]{"entity": "location", "role": "origin"} to [siraha]{"entity": "location", "role": "destination"}
+    - [simara]{"entity": "location", "role": "origin"} to [bhojpur]{"entity": "location", "role": "destination"}
+    - [tumlingtar]{"entity": "location", "role": "origin"} to [dhangadi]{"entity": "location", "role": "destination"}
+    - [chandragadi]{"entity": "location", "role": "origin"} to [taplejung]{"entity": "location", "role": "destination"}
+    - [rolpa]{"entity": "location", "role": "origin"} to [nepalgunj]{"entity": "location", "role": "destination"}
+    - [achham]{"entity": "location", "role": "origin"} to [dhankuta]{"entity": "location", "role": "destination"}
+    - [palungtar]{"entity": "location", "role": "origin"} to [bardiya]{"entity": "location", "role": "destination"}
+    - [rumjatar]{"entity": "location", "role": "origin"} to [dhading]{"entity": "location", "role": "destination"}
+    - [tikapur]{"entity": "location", "role": "origin"} to [dhading]{"entity": "location", "role": "destination"}
+    - from [kathmandu]{"entity": "location", "role": "origin", "value": "Kathmandu"} to [meghauli]{"entity": "location", "role": "destination"}
+- intent: traveller
+  examples: |
+    - [7 people](traveller)
+    - [1 person](traveller)
+    - [6](traveller)
+    - [5](traveller)
+    - for [single person](traveller)
+    - [2 people](traveller)
+    - [3](traveller)
+    - [4 people](traveller)
+    - [single person](traveller)
+    - [4](traveller)
+    - [6 people](traveller)
+- intent: nationality
+  examples: |
+    - I am [Nepalese](nationality)
+    - [Nepali](nationality)
+    - [Nepalese](nationality)
+    - [Indian](nationality)
+    - I am [Nepali](nationality)
+    - I am [Nepalaese](nationality)
+    - [Chinese](nationality)
+    - [nepalese]{"entity": "nationality", "value": "Nepalese"}
+- synonym: Bhadrapur
+  examples: |
+    - bhadrapur
+- synonym: Kathmandu
+  examples: |
+    - kathmandu
+    - ktm
+- synonym: Bharatpur
+  examples: |
+    - bharatpur
+    - BHR
+    - bhr
+- synonym: Pokhara
+  examples: |
+    - pokhara
+    - pkr
+- synonym: Bhairahawa
+  examples: |
+    - bhairahawa
+    - bwa

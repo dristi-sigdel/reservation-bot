@@ -1,0 +1,89 @@
+version: "3.1"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: flight
+  - action: utter_flight
+  - intent: hotel
+  - action: utter_hotel
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: flight
+  - action: utter_flight
+  - intent: flight_location
+    entities:
+    - location: nepalgunj
+    - location: bajura
+  - slot_was_set:
+    - origin: nepalgunj
+  - slot_was_set:
+    - destination: bajura
+  - action: utter_traveller
+  - intent: traveller
+    entities:
+    - traveller: '3'
+  - slot_was_set:
+    - traveller: '3'
+  - action: utter_nationality
+  - intent: nationality
+  - action: utter_submit
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: flight
+  - action: utter_flight
+  - intent: flight_location
+    entities:
+    - location: Kathmandu
+    - location: ilam
+  - slot_was_set:
+    - origin: Kathmandu
+  - slot_was_set:
+    - destination: ilam
+  - action: utter_traveller
+  - intent: traveller
+    entities:
+    - traveller: '5'
+  - slot_was_set:
+    - traveller: '5'
+  - action: utter_submit
+  - action: utter_nationality
+  - intent: nationality
+  - action: utter_submit
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: flight
+  - action: utter_flight
+  - intent: flight_location
+    entities:
+    - location: Kathmandu
+    - location: meghauli
+  - slot_was_set:
+    - origin: Kathmandu
+  - slot_was_set:
+    - destination: meghauli
+  - action: utter_traveller
+  - intent: traveller
+    entities:
+    - traveller: 6 people
+  - slot_was_set:
+    - traveller: 6 people
+  - action: utter_nationality
+  - intent: nationality
+    entities:
+    - nationality: Nepalese
+  - slot_was_set:
+    - nationality: Nepalese
+  - action: utter_submit
