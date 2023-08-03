@@ -17,6 +17,7 @@ nlu:
     - good afternoon
     - Namaste
     - Namaskar
+    - namaste
 - intent: goodbye
   examples: |
     - cu
@@ -90,29 +91,58 @@ nlu:
     - [rumjatar]{"entity": "location", "role": "origin"} to [dhading]{"entity": "location", "role": "destination"}
     - [tikapur]{"entity": "location", "role": "origin"} to [dhading]{"entity": "location", "role": "destination"}
     - from [kathmandu]{"entity": "location", "role": "origin", "value": "Kathmandu"} to [meghauli]{"entity": "location", "role": "destination"}
+    - from [dhangadi]{"entity": "location", "role": "origin"} to [siraha]{"entity": "location", "role": "destination"}
+    - from [jumla]{"entity": "location", "role": "origin"} to [dolpa]{"entity": "location", "role": "destination"}
+    - [ktm]{"entity": "location", "role": "origin", "value": "Kathmandu"} to [pkr]{"entity": "location", "role": "destination", "value": "Pokhara"}
+    - [dhangadi]{"entity": "location", "role": "origin"} to [kathmandu]{"entity": "location", "role": "destination"}
+    - from [dhankuta]{"entity": "location", "role": "origin"} to [kathmandu]{"entity": "location", "role": "destination", "value": "Kathmandu"}
 - intent: traveller
   examples: |
-    - [7 people](traveller)
-    - [1 person](traveller)
+    - [7]people(traveller)
+    - [1]person(traveller)
     - [6](traveller)
     - [5](traveller)
-    - for [single person](traveller)
-    - [2 people](traveller)
+    - for [1](traveller)
+    - [2]people(traveller)
     - [3](traveller)
-    - [4 people](traveller)
-    - [single person](traveller)
+    - [4]people(traveller)
+    - [1](traveller)
     - [4](traveller)
-    - [6 people](traveller)
+    - [6]people(traveller)
+    - [2](traveller)
+    - [3](traveller)
 - intent: nationality
   examples: |
-    - I am [Nepalese](nationality)
-    - [Nepali](nationality)
-    - [Nepalese](nationality)
-    - [Indian](nationality)
-    - I am [Nepali](nationality)
-    - I am [Nepalaese](nationality)
-    - [Chinese](nationality)
-    - [nepalese]{"entity": "nationality", "value": "Nepalese"}
+    - [uk]{"entity": "nationality", "value": "United Kingdom"}
+    - [us]{"entity": "nationality", "value": "United States"}
+    - [France](nationality)
+    - [India](nationality)
+    - [China](nationality)
+    - [Nepal](nationality)
+    - [Taiwan](nationality)
+    - [Turkey](nationality)
+    - [Russia](nationality)
+    - [Srilanka](nationality)
+    - [Netherlands](nationality)
+    - [Morocco](nationality)
+    - [Mexico](nationality)
+    - [Canada](nationality)
+    - [Japan](nationality)
+    - [United Kingdom](nationality)
+    - [United States](nationality)
+    - [UK]{"entity": "nationality", "value": "United Kingdom"}
+- intent: date
+  examples: |
+    - [2023-08-05]AD(date)
+    - [2023-08-08]AD(date)
+    - [2023-08-06]AD(date)
+    - [2023-08-09](date)
+    - [2023-08-04](date)
+    - [2023-08-07](date)
+    - [2022-08-03]AD(date)
+    - [2023-08-05](date)
+    - [2023-08-06](date)
+    - [2023-08-10](date)
 - synonym: Bhadrapur
   examples: |
     - bhadrapur
@@ -120,15 +150,23 @@ nlu:
   examples: |
     - kathmandu
     - ktm
+- synonym: Pokhara
+  examples: |
+    - pkr
+    - pokhara
+- synonym: United Kingdom
+  examples: |
+    - uk
+- synonym: United States
+  examples: |
+    - us
+    - usa
+    - united states of america
 - synonym: Bharatpur
   examples: |
     - bharatpur
     - BHR
     - bhr
-- synonym: Pokhara
-  examples: |
-    - pokhara
-    - pkr
 - synonym: Bhairahawa
   examples: |
     - bhairahawa

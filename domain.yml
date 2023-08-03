@@ -1,6 +1,7 @@
 version: '3.1'
 intents:
 - bot_challenge
+- date
 - flight
 - flight_location
 - goodbye
@@ -11,6 +12,7 @@ intents:
 entities:
 - nationality
 - location
+- date
 - traveller
 - roles:
   - origin
@@ -42,6 +44,11 @@ slots:
     mappings:
     - type: from_entity
       entity: nationality
+  date:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: date
 responses:
   utter_greet:
   - text: Namaste! I can help you with Flight and Hotel Reservation. How would you like my help?
@@ -53,18 +60,36 @@ responses:
   utter_goodbye:
   - text: Bye
   utter_flight:
-  - text: 'Can you please give the information about Origin to Destination location? (Format: Origin to Destination)'
-  utter_hotel:
-  - text: Can you please give the information about the place you would like to reserve Hotels from?
-  utter_flight_location:
-  - text: How many travellers are you booking for to visit from {origin} to {destination}?
+  - text: |-
+      Can you please give the information about Origin to Destination location?
+
+      Format: Origin[From] to Destination[To]
+
+      Example: Kathmandu to Pokhara
   utter_traveller:
   - text: How many people would you like to book the flight from {origin} to {destination}?
+  utter_traveller_format:
+  - text: |-
+      Enter the number of people to travel.
+
+      Example: 4
   utter_iamabot:
   - text: I am a bot, powered by Rasa.
   utter_nationality:
   - text: What is your Nationality?
-  utter_submit:
+  utter_nationality_format:
+  - text: |-
+      Enter your Country's name:
+
+      Example: Nepal
+  utter_date:
+  - text: Please Enter the Departure Date.
+  utter_date_format:
+  - text: |-
+      Format: YYYY-MM-DD in AD
+
+      Example: 2023-12-31
+  utter_submit_flight:
   - text: |-
       Flight booking done Successfully for:
 
@@ -75,13 +100,21 @@ responses:
       No of Travellers: {traveller}
 
       Nationality: {nationality}
+
+      Departure Date: {date}
+  utter_hotel:
+  - text: Can you please give the information about the place you would like to reserve Hotels from?
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 actions:
-- utter_greet
-- utter_submit
-- utter_traveller
 - utter_flight
+- utter_greet
+- utter_traveller
+- utter_date
 - utter_nationality
+- utter_submit_flight
+- utter_date_format
+- utter_traveller_format
+- utter_nationality_format
 - utter_hotel
