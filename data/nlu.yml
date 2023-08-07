@@ -18,6 +18,7 @@ nlu:
     - Namaste
     - Namaskar
     - namaste
+    - hnamaste
 - intent: goodbye
   examples: |
     - cu
@@ -96,6 +97,15 @@ nlu:
     - [ktm]{"entity": "location", "role": "origin", "value": "Kathmandu"} to [pkr]{"entity": "location", "role": "destination", "value": "Pokhara"}
     - [dhangadi]{"entity": "location", "role": "origin"} to [kathmandu]{"entity": "location", "role": "destination"}
     - from [dhankuta]{"entity": "location", "role": "origin"} to [kathmandu]{"entity": "location", "role": "destination", "value": "Kathmandu"}
+    - [kathmandu]{"entity": "location", "role": "origin", "value": "Kathmandu"} to [bharatpur]{"entity": "location", "role": "destination", "value": "Bharatpur"}
+    - [dhankuta]{"entity": "location", "role": "origin"} to [pokhara]{"entity": "location", "role": "destination", "value": "Pokhara"}
+    - [kathmandu]{"entity": "location", "role": "origin", "value": "Kathmandu"} to [bhairahawa]{"entity": "location", "role": "destination", "value": "Bhairahawa"}
+    - [dhankuta]{"entity": "location", "role": "origin"} to [dolpa]{"entity": "location", "role": "destination"}
+    - [jomsom]{"entity": "location", "role": "origin"} to [pkr]{"entity": "location", "role": "destination", "value": "Pokhara"}
+    - from [dolpa]{"entity": "location", "role": "origin"} ko [jumla]{"entity": "location", "role": "destination"}
+    - [kathmandu]{"entity": "location", "role": "origin", "value": "Kathmandu"} to [dolpa]{"entity": "location", "role": "destination"}
+    - [bhairahawa]{"entity": "location", "role": "origin", "value": "Bhairahawa"} to [pokhara]{"entity": "location", "role": "destination", "value": "Pokhara"}
+    - [dhankuta]{"entity": "location", "role": "origin"} to [rajbiraj]{"entity": "location", "role": "destination", "value": "Rajbiraj"}
 - intent: traveller
   examples: |
     - [7]people(traveller)
@@ -131,6 +141,10 @@ nlu:
     - [United Kingdom](nationality)
     - [United States](nationality)
     - [UK]{"entity": "nationality", "value": "United Kingdom"}
+    - [USA]{"entity": "nationality", "value": "United States"}
+    - [US]{"entity": "nationality", "value": "United States"}
+    - [united kingdom]{"entity": "nationality", "value": "United Kingdom"}
+    - [India](nationality)
 - intent: date
   examples: |
     - [2023-08-05]AD(date)
@@ -143,6 +157,11 @@ nlu:
     - [2023-08-05](date)
     - [2023-08-06](date)
     - [2023-08-10](date)
+    - [2023-08-14](date)
+    - [2023-08-18](date)
+    - [2023-08-12](date)
+    - [2023-08-15](date)
+    - [2023-08-15](date)
 - synonym: Bhadrapur
   examples: |
     - bhadrapur
@@ -154,14 +173,6 @@ nlu:
   examples: |
     - pkr
     - pokhara
-- synonym: United Kingdom
-  examples: |
-    - uk
-- synonym: United States
-  examples: |
-    - us
-    - usa
-    - united states of america
 - synonym: Bharatpur
   examples: |
     - bharatpur
@@ -171,3 +182,15 @@ nlu:
   examples: |
     - bhairahawa
     - bwa
+- synonym: United Kingdom
+  examples: |
+    - uk
+    - UK
+    - united kingdom
+- synonym: United States
+  examples: |
+    - us
+    - USA
+    - US
+    - usa
+    - united states of america

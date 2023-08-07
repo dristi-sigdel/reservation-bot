@@ -8,8 +8,6 @@ stories:
   - action: utter_greet
   - intent: flight
   - action: utter_flight
-  - intent: hotel
-  - action: utter_hotel
 
 - story: interactive_story_1
   steps:
@@ -19,47 +17,10 @@ stories:
   - action: utter_flight
   - intent: flight_location
     entities:
-    - location: jumla
-    - location: dolpa
-  - slot_was_set:
-    - origin: jumla
-  - slot_was_set:
-    - destination: dolpa
-  - action: utter_traveller
-  - action: utter_traveller_format
-  - intent: traveller
-    entities:
-    - traveller: '3'
-  - slot_was_set:
-    - traveller: '3'
-  - action: utter_nationality
-  - action: utter_nationality_format
-  - intent: nationality
-    entities:
-    - nationality: india
-  - slot_was_set:
-    - nationality: india
-  - action: utter_date
-  - action: utter_date_format
-  - intent: date
-    entities:
-    - date: '2023-08-05'
-  - slot_was_set:
-    - date: '2023-08-05'
-  - action: utter_submit_flight
-
-- story: interactive_story_1
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: flight
-  - action: utter_flight
-  - intent: flight_location
-    entities:
-    - location: Kathmandu
+    - location: Bhairahawa
     - location: Pokhara
   - slot_was_set:
-    - origin: Kathmandu
+    - origin: Bhairahawa
   - slot_was_set:
     - destination: Pokhara
   - action: utter_traveller
@@ -73,54 +34,18 @@ stories:
   - action: utter_nationality_format
   - intent: nationality
     entities:
-    - nationality: china
+    - nationality: China
   - slot_was_set:
-    - nationality: china
+    - nationality: China
   - action: utter_date
   - action: utter_date_format
   - intent: date
     entities:
-    - date: '2023-08-09'
+    - date: '2023-08-10'
   - slot_was_set:
-    - date: '2023-08-09'
+    - date: '2023-08-10'
   - action: utter_submit_flight
-
-- story: interactive_story_1
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: flight
-  - action: utter_flight
-  - intent: flight_location
-    entities:
-    - location: dhangadi
-    - location: dhankuta
-  - slot_was_set:
-    - origin: dhangadi
-  - slot_was_set:
-    - destination: dhankuta
-  - action: utter_traveller
-  - action: utter_traveller_format
-  - intent: traveller
-    entities:
-    - traveller: '5'
-  - slot_was_set:
-    - traveller: '5'
-  - action: utter_nationality
-  - action: utter_nationality_format
-  - intent: nationality
-    entities:
-    - nationality: china
-  - slot_was_set:
-    - nationality: china
-  - action: utter_date
-  - action: utter_date_format
-  - intent: date
-    entities:
-    - date: '2023-08-06'
-  - slot_was_set:
-    - date: '2023-08-06'
-  - action: utter_submit_flight
+  
 
 - story: interactive_story_1
   steps:
@@ -131,11 +56,11 @@ stories:
   - intent: flight_location
     entities:
     - location: dhankuta
-    - location: Kathmandu
+    - location: Rajbiraj
   - slot_was_set:
     - origin: dhankuta
   - slot_was_set:
-    - destination: Kathmandu
+    - destination: Rajbiraj
   - action: utter_traveller
   - action: utter_traveller_format
   - intent: traveller
@@ -147,14 +72,14 @@ stories:
   - action: utter_nationality_format
   - intent: nationality
     entities:
-    - nationality: United Kingdom
+    - nationality: India
   - slot_was_set:
-    - nationality: United Kingdom
+    - nationality: India
   - action: utter_date
   - action: utter_date_format
   - intent: date
     entities:
-    - date: '2023-08-10'
+    - date: '2023-08-15'
   - slot_was_set:
-    - date: '2023-08-10'
+    - date: '2023-08-15'
   - action: utter_submit_flight
