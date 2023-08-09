@@ -8,6 +8,8 @@ stories:
   - action: utter_greet
   - intent: flight
   - action: utter_flight
+  - intent: hotel
+  - action: utter_hotel
 
 - story: interactive_story_1
   steps:
@@ -83,3 +85,25 @@ stories:
   - slot_was_set:
     - date: '2023-08-15'
   - action: utter_submit_flight
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: hotel
+  - action: utter_hotel
+  - intent: flight_location
+    entities:
+    - location: Pokhara
+  - slot_was_set:
+    - destination: Pokhara
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: hotel
+  - action: utter_hotel
+  - intent: kathmandu
+    entities:
+    - hotel_place: Kathmandu

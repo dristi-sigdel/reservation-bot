@@ -1,31 +1,42 @@
-# from typing import Text, Dict, Any, List
+from typing import Coroutine, List, Dict, Any, Text
+from rasa_sdk import Action, Tracker
+from rasa_sdk.executor import CollectingDispatcher
+from rasa_sdk.interfaces import Tracker
+from rasa_sdk.types import DomainDict
 
-# from rasa_sdk import Action, Tracker
-# from rasa_sdk.executor import CollectingDispatcher
-
-# class ActionFlightLocation(Action):
+# class CustomActionCheckEmptySlots(Action):
 #     def name(self) -> Text:
-#         return "action_flight_location"
+#         return "action_check_empty_slots"
 
-#     def run(self, dispatcher: CollectingDispatcher,
-#             tracker: Tracker,
-#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+#     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+#         # Get the current slot values
+#         current_slots = tracker.slots
 
-#         source_entity = None
-#         destination_entity = None
+#         # print(current_slots.items())
 
-#         for entity in tracker.latest_message['entities']:
-#             role = entity['role']
-#             value = entity['value']
 
-#             if role == 'source':
-#                 source_entity = value
-#             elif role == 'destination':
-#                 destination_entity = value
+#         # Check each slot for emptiness
+#         for slot_name, slot_value in current_slots.items():
+#             print(slot_name)
+#             if slot_value is None:
+#                 print("Rewrite ")
 
-#         # Do something with the extracted source and destination entities
-#         if source_entity and destination_entity:
-#             # Perform the action based on source and destination
-#             pass
+#         else:
+#             dispatcher.utter_message("All slots have been filled.")
+
+#         return []
+
+
+# class CustomActionHotelPlace(Action):
+#     def name(Self) -> Text:
+#         return "action_hotel_place"
+    
+#     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain:Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+#         data=[{"label":"Pokhara","value":"/hotel_location{'hotel_palce':'Pokhara'}"},{"label":"Kathmandu","value":"/hotel_location{'hotel_place':'Kathmandu'}"},
+#               {"label":"Chitwan","value":"/hotel_location{'hotel_place':'chitwan'}"}]
+#         message={"payload":"dropDown","data":data}
+#         print(message)
+#         dispatcher.utter_message(text="Select a Place:",json_message=message)
 
 #         return []
