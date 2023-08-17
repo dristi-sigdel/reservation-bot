@@ -3,40 +3,41 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.interfaces import Tracker
 from rasa_sdk.types import DomainDict
+from rasa_sdk.events import SlotSet, FollowupAction
 
-# class CustomActionCheckEmptySlots(Action):
-#     def name(self) -> Text:
-#         return "action_check_empty_slots"
+from actions import data
 
-#     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-#         # Get the current slot values
-#         current_slots = tracker.slots
+class HotelLocationAction(Action):
+    def name(self) -> Text:
+        return "action_hotel_place"
 
-#         # print(current_slots.items())
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        # hotel_place = tracker.latest_message['text']
+        # print(hotel_place)
+        # return [SlotSet("user_name", hotel_place)]
+
+        slot_value = (tracker.get_slot("hotel_place")).lower()
+
+        if slot_value:
+            hotels = data.check_available(slot_value)
+
+            if hotels:
+                dispatcher.utter_message(f"{hotels}")
+            else:
+                dispatcher.utter_message("The location is not available.")
+            
+        else:
+            dispatcher.utter_message("Choose the location of the hotel: ")
 
 
-#         # Check each slot for emptiness
-#         for slot_name, slot_value in current_slots.items():
-#             print(slot_name)
-#             if slot_value is None:
-#                 print("Rewrite ")
+class ClearSlotsAction(Action):
+    def name(self) -> Text:
+        return "action_clear_slots"
 
-#         else:
-#             dispatcher.utter_message("All slots have been filled.")
-
-#         return []
-
-
-# class CustomActionHotelPlace(Action):
-#     def name(Self) -> Text:
-#         return "action_hotel_place"
-    
-#     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain:Dict[Text, Any]) -> List[Dict[Text, Any]]:
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        # Clear all slots
+        slots_to_clear = tracker.slots.keys()
+        slot_events = [SlotSet(slot, None) for slot in slots_to_clear]
         
-#         data=[{"label":"Pokhara","value":"/hotel_location{'hotel_palce':'Pokhara'}"},{"label":"Kathmandu","value":"/hotel_location{'hotel_place':'Kathmandu'}"},
-#               {"label":"Chitwan","value":"/hotel_location{'hotel_place':'chitwan'}"}]
-#         message={"payload":"dropDown","data":data}
-#         print(message)
-#         dispatcher.utter_message(text="Select a Place:",json_message=message)
-
-#         return []
+        # Return the slot events to clear all slots
+        return slot_events

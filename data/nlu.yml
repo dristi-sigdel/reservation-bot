@@ -18,7 +18,6 @@ nlu:
     - Namaste
     - Namaskar
     - namaste
-    - hnamaste
 - intent: goodbye
   examples: |
     - cu
@@ -58,7 +57,7 @@ nlu:
     - from [ilam]{"entity": "location", "role": "origin"} to [resunga]{"entity": "location", "role": "destination"}
     - from [siraha]{"entity": "location", "role": "origin"} to [rukum]{"entity": "location", "role": "destination"}
     - from [bajura]{"entity": "location", "role": "origin"} to [thamkharka]{"entity": "location", "role": "destination"}
-    - [bhadrapur]]{"entity": "location", "role": "origin"} to [lukla]{"entity": "location", "role": "destination"}
+    - [bhadrapur]{"entity": "location", "role": "origin"} to [lukla]{"entity": "location", "role": "destination"}
     - [bhojpur]{"entity": "location", "role": "origin"} to [ramechhap]{"entity": "location", "role": "destination"}
     - [meghauli]{"entity": "location", "role": "origin"} to [jomsom]{"entity": "location", "role": "destination"}
     - [pokhara]{"entity": "location", "role": "origin"} to [rara]{"entity": "location", "role": "destination"}
@@ -159,21 +158,19 @@ nlu:
     - [2023-08-18](date)
     - [2023-08-12](date)
     - [2023-08-15](date)
-- intent: pokhara
+- intent: hotel_location
   examples: |
-    - [Pokhara](hotel_place)
+    - Hotels in [Pokhara](hotel_place)
     - [pkr](hotel_place)
     - [pokhara](hotel_place)
-- intent: chitwan
-  examples: |
-    - [chitwan](hotel_place)
+    - I want a hotel in [chitwan](hotel_place)
     - [Chitwan](hotel_place)
     - [ctwn](hotel_place)
-- intent: kathmandu
-  examples: |
     - [Kathmandu](hotel_place)
     - [ktm](hotel_place)
     - [kathmandu](hotel_place)
+    - [pokhara]{"entity": "hotel_place", "value": "Pokhara"}
+    - [pokhara]{"entity": "hotel_place", "value": "Pokhara"}
 - synonym: Bhadrapur
   examples: |
     - bhadrapur

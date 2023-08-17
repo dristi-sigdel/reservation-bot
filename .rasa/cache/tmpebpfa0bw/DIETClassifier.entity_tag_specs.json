@@ -1,0 +1,78 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-date",
+      "2": "I-date",
+      "3": "L-date",
+      "4": "U-date",
+      "5": "B-hotel_place",
+      "6": "I-hotel_place",
+      "7": "L-hotel_place",
+      "8": "U-hotel_place",
+      "9": "B-location",
+      "10": "I-location",
+      "11": "L-location",
+      "12": "U-location",
+      "13": "B-nationality",
+      "14": "I-nationality",
+      "15": "L-nationality",
+      "16": "U-nationality",
+      "17": "B-traveller",
+      "18": "I-traveller",
+      "19": "L-traveller",
+      "20": "U-traveller",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-date": 1,
+      "I-date": 2,
+      "L-date": 3,
+      "U-date": 4,
+      "B-hotel_place": 5,
+      "I-hotel_place": 6,
+      "L-hotel_place": 7,
+      "U-hotel_place": 8,
+      "B-location": 9,
+      "I-location": 10,
+      "L-location": 11,
+      "U-location": 12,
+      "B-nationality": 13,
+      "I-nationality": 14,
+      "L-nationality": 15,
+      "U-nationality": 16,
+      "B-traveller": 17,
+      "I-traveller": 18,
+      "L-traveller": 19,
+      "U-traveller": 20,
+      "O": 0
+    },
+    "num_tags": 21
+  },
+  {
+    "tag_name": "role",
+    "ids_to_tags": {
+      "1": "B-destination",
+      "2": "I-destination",
+      "3": "L-destination",
+      "4": "U-destination",
+      "5": "B-origin",
+      "6": "I-origin",
+      "7": "L-origin",
+      "8": "U-origin",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-destination": 1,
+      "I-destination": 2,
+      "L-destination": 3,
+      "U-destination": 4,
+      "B-origin": 5,
+      "I-origin": 6,
+      "L-origin": 7,
+      "U-origin": 8,
+      "O": 0
+    },
+    "num_tags": 9
+  }
+]

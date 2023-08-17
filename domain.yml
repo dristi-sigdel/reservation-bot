@@ -7,10 +7,10 @@ intents:
 - goodbye
 - greet
 - hotel
+- hotel_location
 - kathmandu
 - nationality
 - traveller
-
 entities:
 - hotel_place
 - traveller
@@ -20,6 +20,9 @@ entities:
 - roles:
   - origin
   - destination
+excluded_intents:
+- flight_location
+- nationality
 slots:
   origin:
     type: text
@@ -57,8 +60,7 @@ slots:
     mappings:
     - type: from_entity
       entity: hotel_place
-      intent: hotel
-      not_intent: flight
+      not_intent: excluded_intents
 responses:
   utter_greet:
   - text: Namaste! I can help you with Flight and Hotel Reservation. How would you like my help?
@@ -114,17 +116,14 @@ responses:
       Departure Date: {date}
   utter_hotel:
   - text: Can you please choose the place you would like to reserve Hotels from?
-    buttons:
-    - title: Pokhara
-      payload: /pokhara
-    - title: Kathmandu
-      payload: /kathmandu
-    - title: Chitwan
-      payload: /chitwan
+  utter_hotel_location:
+  - text: Here are the hotles for {hotel_place}
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 actions:
+- utter_hotel_location
+- action_hotel_place
 - utter_hotel
 - utter_greet
 - utter_traveller_format
@@ -135,4 +134,3 @@ actions:
 - utter_date_format
 - utter_submit_flight
 - utter_traveller
-- action_hotel_place
