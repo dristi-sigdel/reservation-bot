@@ -18,6 +18,7 @@ nlu:
     - Namaste
     - Namaskar
     - namaste
+
 - intent: goodbye
   examples: |
     - cu
@@ -30,20 +31,24 @@ nlu:
     - see you around
     - bye bye
     - see you later
+
 - intent: bot_challenge
   examples: |
     - are you a bot?
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
+
 - intent: flight
   examples: |
     - I would like to book a flight.
     - flight booking
+
 - intent: hotel
   examples: |
     - I would like to reserve a hotel
     - hotel reservation
+
 - intent: flight_location
   examples: |
     - [kathmadu]{"entity": "location", "role": "origin"} to [bhadrapur]{"entity": "location", "role": "destination", "value": "Bhadrapur"}
@@ -105,6 +110,7 @@ nlu:
     - [kathmandu]{"entity": "location", "role": "origin", "value": "Kathmandu"} to [dolpa]{"entity": "location", "role": "destination"}
     - [bhairahawa]{"entity": "location", "role": "origin", "value": "Bhairahawa"} to [pokhara]{"entity": "location", "role": "destination", "value": "Pokhara"}
     - [dhankuta]{"entity": "location", "role": "origin"} to [rajbiraj]{"entity": "location", "role": "destination", "value": "Rajbiraj"}
+
 - intent: traveller
   examples: |
     - [7]people(traveller)
@@ -119,6 +125,7 @@ nlu:
     - [4](traveller)
     - [6]people(traveller)
     - [2](traveller)
+
 - intent: nationality
   examples: |
     - [uk]{"entity": "nationality", "value": "United Kingdom"}
@@ -142,6 +149,7 @@ nlu:
     - [USA]{"entity": "nationality", "value": "United States"}
     - [US]{"entity": "nationality", "value": "United States"}
     - [united kingdom]{"entity": "nationality", "value": "United Kingdom"}
+
 - intent: date
   examples: |
     - [2023-08-05]AD(date)
@@ -158,50 +166,61 @@ nlu:
     - [2023-08-18](date)
     - [2023-08-12](date)
     - [2023-08-15](date)
+
 - intent: hotel_pkr
   examples: |
     - Hotels in [Pokhara](hotel_place)
     - [pkr](hotel_place)
     - [pokhara](hotel_place)
     - [pokhara]{"entity": "hotel_place", "value": "Pokhara"}
+
 - intent: hotel_ctwn
   examples: |
-    - I want a hotel in [chitwan](hotel_place)
+    - I want a hotel in [Chitwan](hotel_place)
     - [Chitwan](hotel_place)
-    - [ctwn](hotel_place)
+    - [Ctwn](hotel_place)
+
 - intent: hotel_ktm
   examples: |
     - [Kathmandu](hotel_place)
     - [ktm](hotel_place)
     - [kathmandu](hotel_place)
+
 - synonym: Bhadrapur
   examples: |
     - bhadrapur
+
 - synonym: Kathmandu
   examples: |
     - kathmandu
     - ktm
+
 - synonym: Pokhara
   examples: |
     - pkr
     - pokhara
+
 - synonym: Bharatpur
   examples: |
     - bharatpur
     - BHR
     - bhr
+
 - synonym: Bhairahawa
   examples: |
     - bhairahawa
     - bwa
+
 - synonym: Rajbiraj
   examples: |
     - rajbiraj
+
 - synonym: United Kingdom
   examples: |
     - uk
     - UK
     - united kingdom
+
 - synonym: United States
   examples: |
     - us

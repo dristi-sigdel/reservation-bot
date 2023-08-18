@@ -13,6 +13,7 @@ intents:
 - kathmandu
 - nationality
 - traveller
+
 entities:
 - hotel_place
 - traveller
@@ -22,9 +23,7 @@ entities:
 - roles:
   - origin
   - destination
-excluded_intents:
-- flight_location
-- nationality
+
 slots:
   origin:
     type: text
@@ -34,6 +33,7 @@ slots:
       role: origin
     - type: from_entity
       entity: location
+
   destination:
     type: text
     mappings:
@@ -42,27 +42,31 @@ slots:
       role: destination
     - type: from_entity
       entity: location
+
   traveller:
     type: text
     mappings:
     - type: from_entity
       entity: traveller
+
   nationality:
     type: text
     mappings:
     - type: from_entity
       entity: nationality
+
   date:
     type: text
     mappings:
     - type: from_entity
       entity: date
+
   hotel_place:
     type: text
     mappings:
     - type: from_entity
       entity: hotel_place
-      not_intent: excluded_intents
+
 responses:
   utter_greet:
   - text: Namaste! I can help you with Flight and Hotel Reservation. How would you like my help?
@@ -71,8 +75,10 @@ responses:
       payload: /flight
     - title: Hotel Reservation
       payload: /hotel
+
   utter_goodbye:
   - text: Bye
+
   utter_flight:
   - text: |-
       Can you please give the information about Origin to Destination location?
@@ -80,29 +86,37 @@ responses:
       Format: Origin[From] to Destination[To]
 
       Example: Kathmandu to Pokhara
+
   utter_traveller:
   - text: How many people would you like to book the flight from {origin} to {destination}?
+
   utter_traveller_format:
   - text: |-
       Enter the number of people to travel.
 
       Example: 4
+
   utter_iamabot:
   - text: I am a bot, powered by Rasa.
+
   utter_nationality:
   - text: What is your Nationality?
+
   utter_nationality_format:
   - text: |-
       Enter your Country's name:
 
       Example: Nepal
+
   utter_date:
   - text: Please Enter the Departure Date.
+
   utter_date_format:
   - text: |-
       Format: YYYY-MM-DD in AD
 
       Example: 2023-12-31
+
   utter_submit_flight:
   - text: |-
       Flight booking done Successfully for:
@@ -116,10 +130,22 @@ responses:
       Nationality: {nationality}
 
       Departure Date: {date}
+
   utter_hotel:
   - text: Can you please choose the place you would like to reserve Hotels from?
+    custom:
+      payload: dropDown
+      data:
+      - label: Pokhara
+        value: "/hotel_pkr{'hotel_place:'Pokhara}"
+      - label: Kathmandu
+        value: "/hotel_ktm{'hotel_place:'Kathmandu}"
+      - label: Chitwan
+        value: "/hotel_ctwn{'hotel_place:'Chitwan}"
+
   utter_hotel_location:
   - text: Here are the hotles for {hotel_place}
+
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
