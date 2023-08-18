@@ -158,19 +158,22 @@ nlu:
     - [2023-08-18](date)
     - [2023-08-12](date)
     - [2023-08-15](date)
-- intent: hotel_location
+- intent: hotel_pkr
   examples: |
     - Hotels in [Pokhara](hotel_place)
     - [pkr](hotel_place)
     - [pokhara](hotel_place)
+    - [pokhara]{"entity": "hotel_place", "value": "Pokhara"}
+- intent: hotel_ctwn
+  examples: |
     - I want a hotel in [chitwan](hotel_place)
     - [Chitwan](hotel_place)
     - [ctwn](hotel_place)
+- intent: hotel_ktm
+  examples: |
     - [Kathmandu](hotel_place)
     - [ktm](hotel_place)
     - [kathmandu](hotel_place)
-    - [pokhara]{"entity": "hotel_place", "value": "Pokhara"}
-    - [pokhara]{"entity": "hotel_place", "value": "Pokhara"}
 - synonym: Bhadrapur
   examples: |
     - bhadrapur

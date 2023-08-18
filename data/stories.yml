@@ -41,67 +41,40 @@ stories:
   - slot_was_set:
     - date: '2023-08-10'
   - action: utter_submit_flight
-  
-
-# - story: interactive_story_1
-#   steps:
-#   - intent: flight
-#   - action: utter_flight
-#   - intent: flight_location
-#     entities:
-#     - location: dhankuta
-#     - location: Rajbiraj
-#   - slot_was_set:
-#     - origin: dhankuta
-#   - slot_was_set:
-#     - destination: Rajbiraj
-#   - action: utter_traveller
-#   - action: utter_traveller_format
-#   - intent: traveller
-#     entities:
-#     - traveller: '3'
-#   - slot_was_set:
-#     - traveller: '3'
-#   - action: utter_nationality
-#   - action: utter_nationality_format
-#   - intent: nationality
-#     entities:
-#     - nationality: India
-#   - slot_was_set:
-#     - nationality: India
-#   - action: utter_date
-#   - action: utter_date_format
-#   - intent: date
-#     entities:
-#     - date: '2023-08-15'
-#   - slot_was_set:
-#     - date: '2023-08-15'
-#   - action: utter_submit_flight
 
 
-- story: Hotel booking
+- story: hotel_ktm path
   steps:
   - intent: hotel
-  - action: utter_hotel
-  - intent: kathmandu
+  - action: action_hotel
+  - intent: hotel_ktm
     entities:
-    - hotel_place: kathmandu
+      - hotel_place: "Kathmandu"
   - slot_was_set:
-    - hotel_place: kathmandu
+    - hotel_place: "Kathmandu"
   - action: utter_hotel_location
   - action: action_hotel_place
 
+- story: hotel_pkr path
+  steps:
+  - intent: hotel
+  - action: action_hotel
+  - intent: hotel_pkr
+    entities:
+      - hotel_place: "Pokhara"
+  - slot_was_set:
+    - hotel_place: "Pokhara"
+  - action: utter_hotel_location
+  - action: action_hotel_place
 
-# - story: interactive_story_1
-#   steps:
-#   - intent: greet
-#   - action: utter_greet
-#   - intent: hotel
-#   - action: utter_hotel
-#   - intent: hotel_location
-#     entities:
-#     - hotel_place: Pokhara
-#   - slot_was_set:
-#     - hotel_place: Pokhara
-#   - action: utter_hotel_location
-#   - action: action_hotel_place
+- story: hotel_ctwn path
+  steps:
+  - intent: hotel
+  - action: action_hotel
+  - intent: hotel_ctwn
+    entities:
+      - hotel_place: "chitwan"
+  - slot_was_set:
+    - hotel_place: "chitwan"
+  - action: utter_hotel_location
+  - action: action_hotel_place

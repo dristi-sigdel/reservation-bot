@@ -7,6 +7,21 @@ from rasa_sdk.events import SlotSet, FollowupAction
 
 from actions import data
 
+
+class ActionHotel(Action):
+    def name(self) -> Text:
+        return "action_hotel"
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        buttons = [
+            {'payload' : '/hotel_pkr{"hotel_place":"Pokhara"}', 'title':'Pokhara' },
+            {'payload' : '/hotel_chitwan{"hotel_place":"chitwan"}', 'title':'Chitwan' },
+            {'payload' : '/hotel_ktm{"hotel_place":"Kathmandu"}', 'title':'Kathmandu' }
+        ]
+
+        dispatcher.utter_message(text="Which palce would you like to book a hotel from?", buttons = buttons)
+        return[]
+
 class HotelLocationAction(Action):
     def name(self) -> Text:
         return "action_hotel_place"

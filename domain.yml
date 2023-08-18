@@ -7,7 +7,9 @@ intents:
 - goodbye
 - greet
 - hotel
-- hotel_location
+- hotel_ctwn
+- hotel_ktm
+- hotel_pkr
 - kathmandu
 - nationality
 - traveller
@@ -122,10 +124,11 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 actions:
-- utter_hotel_location
-- action_hotel_place
-- utter_hotel
 - utter_greet
+- action_hotel
+- action_hotel_place
+- utter_hotel_location
+- utter_hotel
 - utter_traveller_format
 - utter_flight
 - utter_date
