@@ -13,6 +13,7 @@ intents:
 - kathmandu
 - nationality
 - traveller
+- out_of_scope
 
 entities:
 - hotel_place
@@ -145,6 +146,10 @@ responses:
 
   utter_hotel_location:
   - text: Here are the hotles for {hotel_place}
+
+
+  utter_out_of_scope:
+  - text: I’m sorry. I don’t have an answer for this. Please try again with just keywords to see if I can find something.
 
 session_config:
   session_expiration_time: 60

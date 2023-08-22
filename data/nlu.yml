@@ -39,6 +39,12 @@ nlu:
     - am I talking to a bot?
     - am I talking to a human?
 
+- intent: out_of_scope
+  examples: |
+    - whatever
+    - "\n"
+    - bad
+
 - intent: flight
   examples: |
     - I would like to book a flight.
