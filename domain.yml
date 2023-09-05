@@ -132,17 +132,17 @@ responses:
 
       Departure Date: {date}
 
-  utter_hotel:
-  - text: Can you please choose the place you would like to reserve Hotels from?
-    custom:
-      payload: dropDown
-      data:
-      - label: Pokhara
-        value: "/hotel_pkr{'hotel_place:'Pokhara}"
-      - label: Kathmandu
-        value: "/hotel_ktm{'hotel_place:'Kathmandu}"
-      - label: Chitwan
-        value: "/hotel_ctwn{'hotel_place:'Chitwan}"
+  # utter_hotel:
+  # - text: Can you please choose the place you would like to reserve Hotels from?
+  #   custom:
+  #     payload: dropDown
+  #     data:
+  #     - label: Pokhara
+  #       value: "/hotel_pkr{'hotel_place:'Pokhara}"
+  #     - label: Kathmandu
+  #       value: "/hotel_ktm{'hotel_place:'Kathmandu}"
+  #     - label: Chitwan
+  #       value: "/hotel_ctwn{'hotel_place:'Chitwan}"
 
   utter_hotel_location:
   - text: Here are the hotles for {hotel_place}

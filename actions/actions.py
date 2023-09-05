@@ -5,8 +5,44 @@ from rasa_sdk.interfaces import Tracker
 from rasa_sdk.types import DomainDict
 from rasa_sdk.events import SlotSet, FollowupAction
 
-from actions import data
+# from actions import data
+import data
+import psycopg2
+import json
 
+# Low-level connection using psycopg2
+def data_fetch(loc):
+    try:
+        conn = psycopg2.connect(
+        host="localhost",
+        database="rasa",
+        user="postgres",
+        password="123456789"
+        )
+
+        cursor = conn.cursor()
+
+        cursor.execute("SELECT name, rating, price, location FROM hotel WHERE location = %s;", (loc,))
+        records = cursor.fetchall()
+
+        print(records)
+
+
+
+        column_names = [desc[0] for desc in cursor.description]
+        formatted_data = [dict(zip(column_names, row)) for row in records]
+        json_data = json.dumps(formatted_data)
+        
+        cursor.close()
+        conn.close()
+
+        return json_data
+
+    except psycopg2.Error as e:
+        return "Error: Unable to connect"
+
+
+data_fetch('pokhara')
 
 class ActionHotel(Action):
     def name(self) -> Text:
@@ -24,27 +60,42 @@ class ActionHotel(Action):
         dispatcher.utter_message(text="Which palce would you like to book a hotel from?", json_message=message)
         return[]
 
-class HotelLocationAction(Action):
+# class HotelLocationAction(Action):
+#     def name(self) -> Text:
+#         return "action_hotel_place"
+
+#     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+#         # hotel_place = tracker.latest_message['text']
+#         # print(hotel_place)
+#         # return [SlotSet("user_name", hotel_place)]
+
+#         slot_value = (tracker.get_slot("hotel_place")).lower()
+
+#         if slot_value:
+#             hotels = data.check_available(slot_value)
+
+#             if hotels:
+#                 dispatcher.utter_message(f"{hotels}")
+#             else:
+#                 dispatcher.utter_message("The location is not available.")
+            
+#         else:
+#             dispatcher.utter_message("Choose the location of the hotel: ")
+
+class HotelsAction(Action):
     def name(self) -> Text:
         return "action_hotel_place"
-
-    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        # hotel_place = tracker.latest_message['text']
-        # print(hotel_place)
-        # return [SlotSet("user_name", hotel_place)]
-
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker:Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         slot_value = (tracker.get_slot("hotel_place")).lower()
 
-        if slot_value:
-            hotels = data.check_available(slot_value)
+        data = {
+            "payload": 'cardsCarousel',
+            "data": data_fetch(slot_value)
+        }
+        
+        dispatcher.utter_message(json_message=data)
 
-            if hotels:
-                dispatcher.utter_message(f"{hotels}")
-            else:
-                dispatcher.utter_message("The location is not available.")
-            
-        else:
-            dispatcher.utter_message("Choose the location of the hotel: ")
 
 
 class ClearSlotsAction(Action):
@@ -58,3 +109,4 @@ class ClearSlotsAction(Action):
         
         # Return the slot events to clear all slots
         return slot_events
+    

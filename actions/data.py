@@ -2,7 +2,7 @@ hotel_location = {
     'kathmandu', 'chitwan', 'pokhara'
 }
 
-hotel_kathmandu = "'Apple Hotel, ktm'\n'Ball Hotel, ktm'\n'Cat Hotel, ktm'\n'Dog Hotel, ktm'"
+hotel_kathmandu = "'Apple Hotel, ktm'\n'Bat Hotel, ktm'\n'Cat Hotel, ktm'\n'Dog Hotel, ktm'"
 
 
 hotel_chitwan = "'Elephant Hotel, ctwn'\n'Fish Hotel, ctwn'\n'Goat Hotel, ctwn'\n'Horse Hotel, ctwn'"
@@ -25,4 +25,4 @@ def check_available(location):
 
     return hotels
 
-# print(check_available('mago'))
+# print(check_available('pokhara'))
